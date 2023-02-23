@@ -33,7 +33,6 @@ const animateFxn = () => {
   );
 };
 
-// for (let i = 0; i < 11; i++) {
 //   gsap.fromTo(
 //     ".card-1",
 //     { duration: 2, x: 100, y: 100 },
