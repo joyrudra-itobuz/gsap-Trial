@@ -48,13 +48,4 @@ const animateFxn = () => {
 };
 
 // V3
-//Comment added by Rahul
-//2nd Comment!
 
-//Long Comment asdjasdkjashdjhajkdsahl
-//Comment Added By Joy
-//Rahul 1st commit
-
-//Joy's Demo
-//Conflict Demo
-//Big Big Conflict
