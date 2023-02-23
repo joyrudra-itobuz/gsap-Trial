@@ -3,82 +3,46 @@ console.log("Starts!");
 // gsap.from(".card-1", { duration: 2, y: "-700", ease: "power3" });
 
 const animateFxn = () => {
-  //   console.log("Running for " + i + " Time.");s
+  let animateBtn = document.querySelector(".animate-btn");
+  console.log(animateBtn.textContent);
 
-  //   for (let i = 0; i < ; i++) {
-  //     const element = array[i];
-  //   }
-  gsap.fromTo(
-    ".card-1",
-    { duration: 2, x: 100, y: 100 },
-    { duration: 2, x: 490, y: 210, ease: "back", repeat: 2, yoyo: true }
-  );
+  let gsapTimeline = gsap.timeline({
+    // delay: 0.5,
+    // paused: true, // default is false
+    repeat: 2, // number of repeats (-1 for infinite)
+    // repeatDelay: 1, // seconds between repeatss
+    repeatRefresh: true, // invalidates on each repeat
+    yoyo: true, // if true > A-B-B-A, if false > A-B-A-B
+    defaults: {
+      // children inherit these defaults
+      duration: 1,
+      ease: "back",
+    },
+    smoothChildTiming: true,
+    autoRemoveChildren: true,
+    // other callbacks:
+    // onStart, onUpdate, onRepeat, onReverseComplete
+    // Each callback has a params property as well
+    // i.e. onUpdateParams (Array)
+  });
 
-  gsap.fromTo(
-    ".card-4",
-    { duration: 2, x: 100, y: 100 },
-    { duration: 2, x: -490, y: 160, ease: "back", repeat: 2, yoyo: true }
-  );
+  gsapTimeline
+    .fromTo(".card-1", { x: 100, y: 100 }, { x: 490, y: 200 })
+    .to(".card-4", { x: -490, y: 160 })
+    .to(".card-2", { x: -490, y: -160 })
+    .to(".card-3", { x: 490, y: -200 });
 
-  gsap.fromTo(
-    ".card-2",
-    { duration: 2, x: 100, y: 100 },
-    { duration: 2, x: -490, y: -160, ease: "back", repeat: 2, yoyo: true }
-  );
+  gsap.timeline().reverse(gsapTimeline);
 
-  gsap.fromTo(
-    ".card-3",
-    { duration: 2, x: 100, y: 100 },
-    { duration: 2, x: 490, y: -200, ease: "back", repeat: 2, yoyo: true }
-  );
+  // if (animateBtn.textContent == "Animate") {
+  //   console.log("If Block Called!");
+  //   animateBtn.textContent = "Reverse";
+  //   gsapTimeline.resume();
+  // } else if (animateBtn.textContent == "Reverse") {
+  //   console.log("Else block called!");
+  //   animateBtn.textContent = "Animate";
+  //   gsapTimeline.reverse();
+  // }
+
+  // gsapTimeline.reverse();
 };
-
-// for (let i = 0; i < 11; i++) {
-//   gsap.fromTo(
-//     ".card-1",
-//     { duration: 2, x: 100, y: 100 },
-//     { duration: 2, x: 490, y: 210, ease: "power3" }
-//   );
-
-//   gsap.fromTo(
-//     ".card-4",
-//     { duration: 2, x: 100, y: 100 },
-//     { duration: 2, x: -490, y: 160, ease: "power3" }
-//   );
-
-//   gsap.fromTo(
-//     ".card-2",
-//     { duration: 2, x: 100, y: 100 },
-//     { duration: 2, x: -490, y: -160, ease: "power3" }
-//   );
-
-//   gsap.fromTo(
-//     ".card-3",
-//     { duration: 2, x: 100, y: 100 },
-//     { duration: 2, x: 490, y: -200, ease: "power3" }
-//   );
-// }
-
-// gsap.fromTo(
-//   ".card-1",
-//   { duration: 2, x: 100, y: 100 },
-//   { duration: 2, x: 490, y: 210, ease: "power3" }
-// );
-
-// gsap.fromTo(
-//   ".card-4",
-//   { duration: 2, x: 100, y: 100 },
-//   { duration: 2, x: -490, y: 160, ease: "power3" }
-// );
-
-// gsap.fromTo(
-//   ".card-2",
-//   { duration: 2, x: 100, y: 100 },
-//   { duration: 2, x: -490, y: -160, ease: "power3" }
-// );
-
-// gsap.fromTo(
-//   ".card-3",
-//   { duration: 2, x: 100, y: 100 },
-//   { duration: 2, x: 490, y: -200, ease: "power3" }
-// );
